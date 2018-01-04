@@ -31,6 +31,7 @@ class GoliathAddSocialMediaLink
             'dropbox',
             'eventbrite',
             'facebook',
+            'facebook-alt',
             'feed',
             'flickr',
             'foursquare',
