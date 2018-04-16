@@ -136,7 +136,7 @@ add_action( 'init', function(){
 
 
 
-function asml_social_media_menu(){
+function asml_social_media_menu( , = '' ){
 
     $asml = new GoliathAddSocialMediaLink();
     $all_supported_social_media = $asml->getSupportedSocialMedia();
@@ -148,7 +148,8 @@ function asml_social_media_menu(){
         $social_media_url = get_theme_mod( $social_media );
 
         if( $social_media_url ){
-            echo "<a href='{$social_media_url}' class='social-link'><svg class='icon icon-social'><use xlink:href='#{$social_media}'></use></svg></a>";
+            $target_string = $target ? " target='$target'" : '';
+            echo "<a href='{$social_media_url}' class='social-link'" . $target_string ."><svg class='icon icon-social'><use xlink:href='#{$social_media}'></use></svg></a>";
         }
 
     }
