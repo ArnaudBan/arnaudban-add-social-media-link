@@ -136,7 +136,7 @@ add_action( 'init', function(){
 
 
 
-function asml_social_media_menu( , = '' ){
+function asml_social_media_menu( $target = '' ){
 
     $asml = new GoliathAddSocialMediaLink();
     $all_supported_social_media = $asml->getSupportedSocialMedia();
