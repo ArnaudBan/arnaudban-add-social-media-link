@@ -1,11 +1,11 @@
 <?php
 /**
  *
- * Plugin Name: Goliath Add Social Media Link
- * Description: Add the social media link
+ * Plugin Name: Add Social Media Link
+ * Description: Add the social media link. Set it in the customizer
  * Version: 1.0
- * Author: Studio Goliath
- * Author URI: https://www.studio-goliath.com
+ * Author: ArnaudBan
+ * Author URI: https://arnaudban.me
  *
  * SVG sprite from :
  * https://github.com/Automattic/social-logos
@@ -13,7 +13,7 @@
  *
  */
 
-class GoliathAddSocialMediaLink
+class ArnaudBanAddSocialMediaLink
 {
 
     private $supported_social_media;
@@ -82,10 +82,10 @@ class GoliathAddSocialMediaLink
 
     public function enqueue_scripts() {
 
-        wp_enqueue_script( 'goliath_asml_js', plugins_url( '/js/scripts.js', __FILE__ ), array(), '1.0', true);
+        wp_enqueue_script( 'ArnaudBan_asml_js', plugins_url( '/js/scripts.js', __FILE__ ), array(), '1.0', true);
 
         // localize
-        wp_localize_script( 'goliath_asml_js', 'scripts_l10n', array(
+        wp_localize_script( 'ArnaudBan_asml_js', 'scripts_l10n', array(
             'svgSpriteUrl' => plugins_url( '/svg/social-logos.svg', __FILE__  ),
         ) );
 
@@ -129,7 +129,7 @@ class GoliathAddSocialMediaLink
 
 add_action( 'init', function(){
 
-    $asml = new GoliathAddSocialMediaLink();
+    $asml = new ArnaudBanAddSocialMediaLink();
     $asml->init();
 
 });
@@ -138,7 +138,7 @@ add_action( 'init', function(){
 
 function asml_social_media_menu( $target = '' ){
 
-    $asml = new GoliathAddSocialMediaLink();
+    $asml = new ArnaudBanAddSocialMediaLink();
     $all_supported_social_media = $asml->getSupportedSocialMedia();
 
     echo '<div class="social-media-link">';
