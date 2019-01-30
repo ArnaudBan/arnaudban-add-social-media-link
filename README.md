@@ -1,4 +1,4 @@
-# goliath-add-social-media-link
+# Add social medial ink
 
 WordPress plugin to add the social media link
 
