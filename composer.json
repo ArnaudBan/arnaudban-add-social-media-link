@@ -1,0 +1,13 @@
+{
+    "name": "arnaudban/add-social-media-link",
+    "description": "WordPress plugin to add socialmedia link",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ArnaudBan",
+            "email": "arnaud@banvillet.fr"
+        }
+    ],
+    "require": {}
+}
