@@ -15,7 +15,7 @@
 
 namespace ABSocialMediaLink;
 
-if( ! class_exists( 'SocialMediaMenu' ) ){
+if( ! class_exists( 'SocialMediaMenu' ) && file_exists( __DIR__ . '/vendor/autoload.php' ) ){
     require __DIR__ . '/vendor/autoload.php';
 }
 
