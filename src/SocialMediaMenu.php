@@ -1,19 +1,10 @@
 <?php
-/**
- *
- * Plugin Name: Add Social Media Link
- * Description: Add the social media link. Set it in the customizer
- * Version: 1.0
- * Author: ArnaudBan
- * Author URI: https://arnaudban.me
- *
- * SVG sprite from :
- * https://github.com/Automattic/social-logos
- *
- *
- */
 
-class ArnaudBanAddSocialMediaLink
+
+namespace ABSocialMediaLink;
+
+
+class SocialMediaMenu
 {
 
     private $supported_social_media;
@@ -21,7 +12,7 @@ class ArnaudBanAddSocialMediaLink
     public function __construct()
     {
 
-        $this->supported_social_media = apply_filters( 'asml_supported_social_media', array(
+        $this->supported_social_media = apply_filters( 'ABSocialMediaLink/supported_social_media', array(
             'amazon',
             'behance',
             'blogger-alt',
@@ -73,27 +64,30 @@ class ArnaudBanAddSocialMediaLink
 
     }
 
-    public function init(){
+    public function init(): void
+    {
 
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
         add_action( 'customize_register', array( $this, 'customize_register' ) );
     }
 
-    public function enqueue_scripts() {
+    public function enqueue_scripts(): void
+    {
 
-        wp_enqueue_script( 'ArnaudBan_asml_js', plugins_url( '/js/scripts.js', __FILE__ ), array(), '1.0', true);
+        wp_enqueue_script( 'ArnaudBan_asml_js', plugins_url( 'assets/js/scripts.js', __DIR__), array(), '1.0', true);
 
         // localize
         wp_localize_script( 'ArnaudBan_asml_js', 'scripts_l10n', array(
-            'svgSpriteUrl' => plugins_url( '/svg/social-logos.svg', __FILE__  ),
+            'svgSpriteUrl' => plugins_url( 'assets/svg/social-logos.svg', __DIR__),
         ) );
 
     }
 
 
 
-    public function customize_register( $wp_customize ) {
+    public function customize_register( \WP_Customize_Manager $wp_customize ): void
+    {
 
 
         foreach ( $this->supported_social_media as $social_media ){
@@ -120,40 +114,9 @@ class ArnaudBanAddSocialMediaLink
     /**
      * @return array
      */
-    public function getSupportedSocialMedia()
+    public function getSupportedSocialMedia(): array
     {
         return $this->supported_social_media;
     }
-}
-
-
-add_action( 'init', function(){
-
-    $asml = new ArnaudBanAddSocialMediaLink();
-    $asml->init();
-
-});
-
-
-
-function asml_social_media_menu( $target = '' ){
-
-    $asml = new ArnaudBanAddSocialMediaLink();
-    $all_supported_social_media = $asml->getSupportedSocialMedia();
-
-    echo '<div class="social-media-link">';
-
-    foreach ( $all_supported_social_media as $social_media ){
-
-        $social_media_url = get_theme_mod( $social_media );
-
-        if( $social_media_url ){
-            $target_string = $target ? " target='$target'" : '';
-            echo "<a href='{$social_media_url}' class='social-link'" . $target_string ."><svg class='icon icon-social'><use xlink:href='#{$social_media}'></use></svg></a>";
-        }
-
-    }
-
-    echo '</div>';
 
 }

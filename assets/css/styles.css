@@ -1,0 +1,29 @@
+.share-links {
+  margin: 2em 0;
+}
+
+.share-links__link{
+  display: inline-block;
+  padding: 0.5em;
+  font-size: 1.25em;
+  margin-right: 0.5em;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 1em;
+}
+.share-links__link__facebook{
+  background-color: #425b96;
+}
+.share-links__link__twitter{
+  background-color: #54a8dc;
+}
+.share-links__link__linkedin{
+  background-color: #3072ad;
+}
+
+.share-links .icon-social{
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: block;
+}
