@@ -112,22 +112,22 @@ class SocialMediaShareLink
 
     public function GetSocialMediaSiteLinks_WithShareLinks($args)
     {
-        $url = urlencode($args['url']);
-        $title = urlencode($args['title']);
-        $image = urlencode($args['image']);
-        $desc = urlencode($args['desc']);
-        $app_id = urlencode($args['appid']);
-        $redirect_url = urlencode($args['redirecturl']);
-        $via = urlencode($args['via']);
-        $hash_tags = urlencode($args['hashtags']);
-        $provider = urlencode($args['provider']);
-        $language = urlencode($args['language']);
-        $user_id = urlencode($args['userid']);
-        $category = urlencode($args['category']);
-        $phone_number = urlencode($args['phonenumber']);
-        $email_address = urlencode($args['emailaddress']);
-        $cc_email_address = urlencode($args['ccemailaddress']);
-        $bcc_email_address = urlencode($args['bccemailaddress']);
+        $url = isset( $args['url'] ) ? urlencode($args['url']) : '';
+        $title = isset( $args['title'] ) ? urlencode($args['title']) : '';
+        $image = isset( $args['image'] ) ? urlencode($args['image']) : '';
+        $desc = isset( $args['desc'] ) ? urlencode($args['desc']) : '';
+        $app_id = isset( $args['appid'] ) ? urlencode($args['appid']) : '';
+        $redirect_url = isset( $args['redirecturl'] ) ? urlencode($args['redirecturl']) : '';
+        $via = isset( $args['via'] ) ? urlencode($args['via']) : '';
+        $hash_tags = isset( $args['hashtags'] ) ? urlencode($args['hashtags']) : '';
+        $provider = isset( $args['provider'] ) ? urlencode($args['provider']) : '';
+        $language = isset( $args['language'] ) ? urlencode($args['language']) : '';
+        $user_id = isset( $args['userid'] ) ? urlencode($args['userid']) : '';
+        $category = isset( $args['category'] ) ? urlencode($args['category']) : '';
+        $phone_number = isset( $args['phonenumber'] ) ? urlencode($args['phonenumber']) : '';
+        $email_address = isset( $args['emailaddress'] ) ? urlencode($args['emailaddress']) : '';
+        $cc_email_address = isset( $args['ccemailaddress'] ) ? urlencode($args['ccemailaddress']) : '';
+        $bcc_email_address = isset( $args['bccemailaddress'] ) ? urlencode($args['bccemailaddress']) : '';
 
         $text = $title;
 
