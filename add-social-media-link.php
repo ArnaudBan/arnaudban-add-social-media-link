@@ -55,3 +55,15 @@ function social_media_menu( $target = '' ){
     echo '</div>';
 
 }
+
+/**
+ * get social share link
+ *
+ * @return string
+ */
+function social_media_share_links(){
+
+    $shareMenu = new SocialMediaShareMenu();
+    return $shareMenu->display_share_links();
+}
+
