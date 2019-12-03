@@ -26,17 +26,29 @@ class SocialMediaShareMenu
 
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
 
-        add_filter('the_content', [$this, 'display_share_links']);
+        if( apply_filters( 'ABSocialMediaLink/auto_display_share_in_the_content', true ) ){
+
+            add_filter('the_content', [$this, 'add_to_content']);
+        }
     }
 
-
     /**
-     * Display share links
+     * Add share links to content
      *
      * @param string $content
      * @return string
      */
-    public function display_share_links($content ): string
+    public function add_to_content( $content  ): string
+    {
+        return $content . $this->display_share_links();
+    }
+
+    /**
+     * get share links
+     *
+     * @return string
+     */
+    public function display_share_links(): string
     {
 
         $share_link = '';
@@ -68,7 +80,7 @@ class SocialMediaShareMenu
             $share_link .= '</div>';
         }
 
-        return $content . $share_link;
+        return $share_link;
     }
 
 
