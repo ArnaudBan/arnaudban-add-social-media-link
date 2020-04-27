@@ -34,6 +34,7 @@ class SocialMediaMenu
             'google',
             'instagram',
             'linkedin',
+            'linkedin-alt',
             'mail',
             'medium',
             'path-alt',
