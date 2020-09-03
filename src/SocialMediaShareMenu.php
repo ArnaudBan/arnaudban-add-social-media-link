@@ -46,9 +46,10 @@ class SocialMediaShareMenu
     /**
      * get share links
      *
+     * @param string $target
      * @return string
      */
-    public function display_share_links(): string
+    public function display_share_links( $target = '' ): string
     {
 
         $share_link = '';
@@ -67,6 +68,8 @@ class SocialMediaShareMenu
                 'title' => get_the_title( $post_id )
             ]);
 
+            $target_string = $target ? " target='$target'" : '';
+
             $share_link = '<div class="share-links">';
 
             $share_link .= apply_filters( 'ABSocialMediaLink/before_links', '' );
@@ -74,7 +77,7 @@ class SocialMediaShareMenu
                 $social_media_url = $social_media_urls[$slug];
                 $nice_name = $social_media_names[$slug];
                 $icon = in_array( $slug, [ 'facebook', 'twitter'] ) ? $slug . '-alt' : $slug;
-                $share_link .= "<a href='{$social_media_url}' class='button share-links__link share-links__link__{$slug}'><svg class='icon icon-social'><use xlink:href='#{$icon}'></use></svg><span class='screen-reader-text'>{$nice_name}</span></a>";
+                $share_link .= "<a href='{$social_media_url}' class='button share-links__link share-links__link__{$slug}'{$target_string}><svg class='icon icon-social'><use xlink:href='#{$icon}'></use></svg><span class='screen-reader-text'>{$nice_name}</span></a>";
             }
             $share_link .= apply_filters( 'ABSocialMediaLink/after_links', '' );
             $share_link .= '</div>';

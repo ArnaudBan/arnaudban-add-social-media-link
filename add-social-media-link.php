@@ -59,11 +59,12 @@ function social_media_menu( $target = '' ){
 /**
  * get social share link
  *
+ * @param string $target
  * @return string
  */
-function social_media_share_links(){
+function social_media_share_links( $target = '' ){
 
     $shareMenu = new SocialMediaShareMenu();
-    return $shareMenu->display_share_links();
+    return $shareMenu->display_share_links( $target );
 }
 
