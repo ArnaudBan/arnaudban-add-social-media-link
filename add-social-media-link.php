@@ -3,7 +3,7 @@
  *
  * Plugin Name: Add Social Media Link
  * Description: Add the social media link. Set it in the customizer
- * Version: 1.0
+ * Version: 2.5
  * Author: ArnaudBan
  * Author URI: https://arnaudban.me
  *

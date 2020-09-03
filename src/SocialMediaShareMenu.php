@@ -40,7 +40,8 @@ class SocialMediaShareMenu
      */
     public function add_to_content( $content  ): string
     {
-        return $content . $this->display_share_links();
+        $target_blanck = apply_filters( 'ABSocialMediaLink/target_blanck', false );
+        return $content . $this->display_share_links( $target_blanck ? '_blanck': '');
     }
 
     /**
